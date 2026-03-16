@@ -1,0 +1,408 @@
+/* ── Reset & Base ─────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: rgb(64, 77, 97);
+  background: linear-gradient(135deg, rgb(237, 243, 251), rgb(224, 235, 247));
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── Layout ──────────────────────────────────────── */
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Header / Nav ────────────────────────────────── */
+
+.site-header {
+  padding: 24px 0;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgb(64, 77, 97);
+}
+
+.site-nav {
+  display: flex;
+  gap: 28px;
+}
+
+.site-nav a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgb(140, 153, 171);
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: rgb(64, 77, 97);
+}
+
+/* ── Hero ────────────────────────────────────────── */
+
+.hero {
+  text-align: center;
+  padding: 80px 0 64px;
+}
+
+.hero-tagline {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgb(140, 153, 171);
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: rgb(64, 77, 97);
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: rgb(140, 153, 171);
+  max-width: 480px;
+  margin: 0 auto 40px;
+  line-height: 1.55;
+}
+
+/* ── Widget Mockup ───────────────────────────────── */
+
+.widget-mockup {
+  display: inline-block;
+  background: linear-gradient(135deg, rgb(237, 243, 251), rgb(224, 235, 247));
+  border-radius: 26px;
+  padding: 32px 48px;
+  box-shadow:
+    0 20px 60px rgba(64, 77, 97, 0.1),
+    0 4px 12px rgba(64, 77, 97, 0.06);
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.widget-mockup .widget-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgb(141, 153, 171);
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+.widget-mockup .widget-age {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: rgb(64, 77, 97);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.widget-mockup .widget-unit {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgb(141, 153, 171);
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  margin-top: 2px;
+}
+
+/* ── App Store Badge ─────────────────────────────── */
+
+.app-store-badge {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.app-store-badge img {
+  height: 48px;
+  width: auto;
+}
+
+.badge-placeholder {
+  display: inline-block;
+  padding: 12px 28px;
+  background: rgb(64, 77, 97);
+  color: #fff;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s ease;
+}
+
+.badge-placeholder:hover {
+  opacity: 0.85;
+}
+
+/* ── Features ────────────────────────────────────── */
+
+.features {
+  padding: 48px 0 64px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 8px rgba(64, 77, 97, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(64, 77, 97, 0.08);
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.feature-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: rgb(64, 77, 97);
+}
+
+.feature-card p {
+  font-size: 0.88rem;
+  color: rgb(140, 153, 171);
+  line-height: 1.5;
+}
+
+/* ── Page Content (Privacy / Support) ────────────── */
+
+.page-content {
+  padding: 48px 0 80px;
+}
+
+.page-content h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: rgb(64, 77, 97);
+}
+
+.page-meta {
+  font-size: 0.85rem;
+  color: rgb(140, 153, 171);
+  margin-bottom: 40px;
+}
+
+.page-content h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 36px;
+  margin-bottom: 10px;
+  color: rgb(64, 77, 97);
+}
+
+.page-content p {
+  margin-bottom: 14px;
+  color: rgb(90, 103, 121);
+  line-height: 1.65;
+}
+
+.page-content ul {
+  margin-bottom: 14px;
+  padding-left: 24px;
+}
+
+.page-content li {
+  margin-bottom: 6px;
+  color: rgb(90, 103, 121);
+  line-height: 1.55;
+}
+
+.page-content a {
+  color: rgb(64, 77, 97);
+  font-weight: 600;
+  border-bottom: 1.5px solid rgb(200, 210, 224);
+  transition: border-color 0.2s ease;
+}
+
+.page-content a:hover {
+  border-color: rgb(64, 77, 97);
+}
+
+/* ── FAQ ─────────────────────────────────────────── */
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(64, 77, 97, 0.04);
+}
+
+.faq-item h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: rgb(64, 77, 97);
+}
+
+.faq-item p {
+  font-size: 0.88rem;
+  color: rgb(90, 103, 121);
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+/* ── Contact Card ────────────────────────────────── */
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 20px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(64, 77, 97, 0.04);
+  margin-bottom: 40px;
+}
+
+.contact-card p {
+  color: rgb(140, 153, 171);
+  margin-bottom: 16px;
+}
+
+.contact-card .email-link {
+  display: inline-block;
+  padding: 12px 28px;
+  background: rgb(64, 77, 97);
+  color: #fff;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  transition: opacity 0.2s ease;
+}
+
+.contact-card .email-link:hover {
+  opacity: 0.85;
+  border: none;
+}
+
+/* ── Footer ──────────────────────────────────────── */
+
+.site-footer {
+  padding: 40px 0;
+  border-top: 1px solid rgba(64, 77, 97, 0.08);
+}
+
+.site-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgb(140, 153, 171);
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: rgb(64, 77, 97);
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: rgb(180, 190, 202);
+}
+
+/* ── Responsive ──────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 56px 0 48px;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .widget-mockup {
+    padding: 28px 40px;
+    border-radius: 22px;
+  }
+
+  .widget-mockup .widget-age {
+    font-size: 2.75rem;
+  }
+
+  .site-footer .container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .page-content h1 {
+    font-size: 1.75rem;
+  }
+}

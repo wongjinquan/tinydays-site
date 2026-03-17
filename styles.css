@@ -8,6 +8,36 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg: rgb(242, 242, 247);
+  --text-primary: rgb(64, 77, 97);
+  --text-secondary: rgb(140, 153, 171);
+  --text-body: rgb(90, 103, 121);
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-shadow: rgba(64, 77, 97, 0.04);
+  --border: rgba(64, 77, 97, 0.08);
+  --btn-bg: rgb(64, 77, 97);
+  --btn-text: #fff;
+  --widget-shadow-1: rgba(64, 77, 97, 0.15);
+  --widget-shadow-2: rgba(64, 77, 97, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: rgb(28, 28, 30);
+    --text-primary: rgb(229, 229, 234);
+    --text-secondary: rgb(142, 142, 147);
+    --text-body: rgb(174, 174, 178);
+    --card-bg: rgba(255, 255, 255, 0.06);
+    --card-shadow: rgba(0, 0, 0, 0.15);
+    --border: rgba(255, 255, 255, 0.08);
+    --btn-bg: rgb(229, 229, 234);
+    --btn-text: rgb(28, 28, 30);
+    --widget-shadow-1: rgba(0, 0, 0, 0);
+    --widget-shadow-2: rgba(0, 0, 0, 0);
+  }
+}
+
 html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
@@ -15,8 +45,8 @@ html {
 
 body {
   font-family: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: rgb(64, 77, 97);
-  background: linear-gradient(135deg, rgb(237, 243, 251), rgb(224, 235, 247));
+  color: var(--text-primary);
+  background: var(--bg);
   min-height: 100vh;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -38,13 +68,13 @@ img {
 .container {
   max-width: 720px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
 /* ── Header / Nav ────────────────────────────────── */
 
 .site-header {
-  padding: 24px 0;
+  padding: 20px 0;
 }
 
 .site-header .container {
@@ -54,248 +84,251 @@ img {
 }
 
 .site-logo {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: rgb(64, 77, 97);
 }
 
 .site-nav {
   display: flex;
-  gap: 28px;
+  gap: 24px;
 }
 
 .site-nav a {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: rgb(140, 153, 171);
+  color: var(--text-secondary);
   transition: color 0.2s ease;
 }
 
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
-  color: rgb(64, 77, 97);
+  color: var(--text-primary);
 }
 
 /* ── Hero ────────────────────────────────────────── */
 
 .hero {
   text-align: center;
-  padding: 80px 0 64px;
+  padding: 48px 0 40px;
 }
 
 .hero-tagline {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: rgb(140, 153, 171);
-  margin-bottom: 16px;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
   letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: rgb(64, 77, 97);
-  margin-bottom: 20px;
+  line-height: 1.15;
+  margin-bottom: 16px;
 }
 
 .hero-subtitle {
-  font-size: 1.15rem;
-  color: rgb(140, 153, 171);
+  font-size: 1rem;
+  color: var(--text-secondary);
   max-width: 480px;
-  margin: 0 auto 40px;
+  margin: 0 auto 36px;
   line-height: 1.55;
 }
 
-/* ── Widget Mockup ───────────────────────────────── */
+/* ── Widget Mockup (exact iOS systemSmall: 170×170pt) ── */
 
 .widget-mockup {
+  position: relative;
   display: inline-block;
+  width: 170px;
+  height: 170px;
   background: linear-gradient(135deg, rgb(237, 243, 251), rgb(224, 235, 247));
   border-radius: 26px;
-  padding: 32px 48px;
   box-shadow:
-    0 20px 60px rgba(64, 77, 97, 0.1),
-    0 4px 12px rgba(64, 77, 97, 0.06);
-  margin-bottom: 48px;
-  position: relative;
+    0 20px 60px var(--widget-shadow-1),
+    0 4px 12px var(--widget-shadow-2);
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+  .widget-mockup {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.06);
+  }
 }
 
 .widget-mockup .widget-name {
-  font-size: 0.85rem;
-  font-weight: 600;
+  position: absolute;
+  top: 23px;
+  left: 24px;
+  right: 24px;
+  font-size: 15px;
+  font-weight: 500;
   color: rgb(141, 153, 171);
   letter-spacing: 0.02em;
-  margin-bottom: 4px;
+  line-height: 1;
+  text-align: center;
+}
+
+.widget-mockup .widget-center {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .widget-mockup .widget-age {
-  font-size: 3.5rem;
-  font-weight: 800;
+  font-size: 44px;
+  font-weight: 700;
   color: rgb(64, 77, 97);
   letter-spacing: -0.03em;
   line-height: 1;
 }
 
 .widget-mockup .widget-unit {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: rgb(141, 153, 171);
-  letter-spacing: 0.04em;
-  text-transform: lowercase;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgb(64, 77, 97);
+  line-height: 1;
   margin-top: 2px;
+}
+
+.widget-mockup .widget-detail {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(141, 153, 171);
+  line-height: 1;
+  margin-top: 8px;
 }
 
 /* ── App Store Badge ─────────────────────────────── */
 
 .app-store-badge {
   display: inline-block;
-  margin-top: 8px;
+  margin-bottom: 32px;
 }
 
 .app-store-badge img {
-  height: 48px;
+  height: 44px;
   width: auto;
-}
-
-.badge-placeholder {
-  display: inline-block;
-  padding: 12px 28px;
-  background: rgb(64, 77, 97);
-  color: #fff;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  transition: opacity 0.2s ease;
-}
-
-.badge-placeholder:hover {
-  opacity: 0.85;
 }
 
 /* ── Features ────────────────────────────────────── */
 
 .features {
-  padding: 48px 0 64px;
+  padding: 32px 0 48px;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--card-bg);
   border-radius: 20px;
-  padding: 28px 24px;
-  box-shadow: 0 2px 8px rgba(64, 77, 97, 0.04);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(64, 77, 97, 0.08);
+  padding: 24px 20px;
+  box-shadow: 0 2px 8px var(--card-shadow);
 }
 
 .feature-icon {
   font-size: 1.5rem;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .feature-card h3 {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  margin-bottom: 6px;
-  color: rgb(64, 77, 97);
+  margin-bottom: 4px;
 }
 
 .feature-card p {
-  font-size: 0.88rem;
-  color: rgb(140, 153, 171);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
 /* ── Page Content (Privacy / Support) ────────────── */
 
 .page-content {
-  padding: 48px 0 80px;
+  padding: 32px 0 64px;
 }
 
 .page-content h1 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  margin-bottom: 8px;
-  color: rgb(64, 77, 97);
+  margin-bottom: 6px;
 }
 
 .page-meta {
   font-size: 0.85rem;
-  color: rgb(140, 153, 171);
-  margin-bottom: 40px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
 }
 
 .page-content h2 {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  margin-top: 36px;
-  margin-bottom: 10px;
-  color: rgb(64, 77, 97);
+  margin-top: 32px;
+  margin-bottom: 8px;
 }
 
 .page-content p {
-  margin-bottom: 14px;
-  color: rgb(90, 103, 121);
+  margin-bottom: 12px;
+  color: var(--text-body);
   line-height: 1.65;
+  font-size: 0.925rem;
 }
 
 .page-content ul {
-  margin-bottom: 14px;
-  padding-left: 24px;
+  margin-bottom: 12px;
+  padding-left: 20px;
 }
 
 .page-content li {
   margin-bottom: 6px;
-  color: rgb(90, 103, 121);
+  color: var(--text-body);
   line-height: 1.55;
+  font-size: 0.925rem;
 }
 
 .page-content a {
-  color: rgb(64, 77, 97);
+  color: var(--text-primary);
   font-weight: 600;
-  border-bottom: 1.5px solid rgb(200, 210, 224);
+  border-bottom: 1.5px solid var(--border);
   transition: border-color 0.2s ease;
 }
 
 .page-content a:hover {
-  border-color: rgb(64, 77, 97);
+  border-color: var(--text-primary);
 }
 
 /* ── FAQ ─────────────────────────────────────────── */
 
 .faq-item {
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--card-bg);
   border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(64, 77, 97, 0.04);
+  padding: 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px var(--card-shadow);
 }
 
 .faq-item h3 {
-  font-size: 0.95rem;
+  font-size: 0.925rem;
   font-weight: 700;
-  margin-bottom: 8px;
-  color: rgb(64, 77, 97);
+  margin-bottom: 6px;
 }
 
 .faq-item p {
-  font-size: 0.88rem;
-  color: rgb(90, 103, 121);
+  font-size: 0.875rem;
+  color: var(--text-body);
   line-height: 1.55;
   margin-bottom: 0;
 }
@@ -303,24 +336,24 @@ img {
 /* ── Contact Card ────────────────────────────────── */
 
 .contact-card {
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--card-bg);
   border-radius: 20px;
-  padding: 32px;
+  padding: 28px 20px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(64, 77, 97, 0.04);
-  margin-bottom: 40px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  margin-bottom: 32px;
 }
 
 .contact-card p {
-  color: rgb(140, 153, 171);
+  color: var(--text-secondary);
   margin-bottom: 16px;
 }
 
 .contact-card .email-link {
   display: inline-block;
-  padding: 12px 28px;
-  background: rgb(64, 77, 97);
-  color: #fff;
+  padding: 12px 24px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
   border-radius: 12px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -336,14 +369,16 @@ img {
 /* ── Footer ──────────────────────────────────────── */
 
 .site-footer {
-  padding: 40px 0;
-  border-top: 1px solid rgba(64, 77, 97, 0.08);
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
 }
 
 .site-footer .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
+  text-align: center;
 }
 
 .footer-links {
@@ -354,55 +389,96 @@ img {
 .footer-links a {
   font-size: 0.85rem;
   font-weight: 500;
-  color: rgb(140, 153, 171);
+  color: var(--text-secondary);
   transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
-  color: rgb(64, 77, 97);
+  color: var(--text-primary);
 }
 
 .footer-copy {
   font-size: 0.8rem;
-  color: rgb(180, 190, 202);
+  color: var(--text-secondary);
+  opacity: 0.6;
 }
 
-/* ── Responsive ──────────────────────────────────── */
+/* ── Desktop (scale up from mobile base) ─────────── */
 
-@media (max-width: 640px) {
+@media (min-width: 640px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .site-header {
+    padding: 24px 0;
+  }
+
+  .site-logo {
+    font-size: 1.25rem;
+  }
+
+  .site-nav {
+    gap: 28px;
+  }
+
   .hero {
-    padding: 56px 0 48px;
+    padding: 80px 0 64px;
   }
 
   .hero h1 {
-    font-size: 2.25rem;
+    font-size: 3rem;
   }
 
   .hero-subtitle {
-    font-size: 1.05rem;
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    font-size: 1.15rem;
+    margin-bottom: 40px;
   }
 
   .widget-mockup {
-    padding: 28px 40px;
-    border-radius: 22px;
+    margin-bottom: 48px;
   }
 
-  .widget-mockup .widget-age {
-    font-size: 2.75rem;
+  .features {
+    padding: 48px 0 64px;
   }
 
-  .site-footer .container {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
+  .features-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .feature-card {
+    padding: 28px 24px;
+  }
+
+  .page-content {
+    padding: 48px 0 80px;
   }
 
   .page-content h1 {
-    font-size: 1.75rem;
+    font-size: 2rem;
+  }
+
+  .page-content h2 {
+    margin-top: 36px;
+  }
+
+  .contact-card {
+    padding: 32px;
+  }
+
+  .faq-item {
+    padding: 24px;
+  }
+
+  .site-footer {
+    padding: 40px 0;
+  }
+
+  .site-footer .container {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
   }
 }

@@ -1,0 +1,5 @@
+name = "tinydays-site"
+compatibility_date = "2026-03-20"
+
+[assets]
+directory = "."
